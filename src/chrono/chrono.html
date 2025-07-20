@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="header">
+    <h1 class="title">⏱️ BEM OnLine Calcul Temps</h1>
+    <p class="subtitle">Addition, soustraction et comparaison de durées</p>
+  </div>
+
+  <form [formGroup]="timeForm" (ngSubmit)="onSubmit()">
+    <!-- Durée 1 -->
+    <div class="form-group">
+      <label>Durée 1</label>
+      <input type="number" placeholder="Heures" formControlName="h1" min="0" class="form-control" />
+      <input type="number" placeholder="Minutes" formControlName="m1" min="0" max="59" class="form-control" />
+      <input type="number" placeholder="Secondes" formControlName="s1" min="0" max="59" class="form-control" />
+    </div>
+
+    <!-- Durée 2 -->
+    <div class="form-group">
+      <label>Durée 2</label>
+      <input type="number" placeholder="Heures" formControlName="h2" min="0" class="form-control" />
+      <input type="number" placeholder="Minutes" formControlName="m2" min="0" max="59" class="form-control" />
+      <input type="number" placeholder="Secondes" formControlName="s2" min="0" max="59" class="form-control" />
+    </div>
+
+    <!-- Opération -->
+    <div class="form-group">
+      <label>Opération</label>
+      <select formControlName="operation" class="form-control">
+        <option value="add">Addition</option>
+        <option value="sub">Soustraction</option>
+        <option value="compare">Comparer</option>
+      </select>
+    </div>
+
+    <button class="calculate-btn" type="submit">🧮 Calculer</button>
+  </form>
+
+  <div class="result" *ngIf="result">
+    <h3>Résultat :</h3>
+    <div class="result-text">{{ result }}</div>
+  </div>
+</div>
